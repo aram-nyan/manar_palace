@@ -48,22 +48,22 @@ class FavouriteItem {
 
   FavouriteItem(
       {this.id,
-        this.images,
-        this.title,
-        this.content,
-        this.edMassa,
-        this.edMassa2,
-        this.edCount,
-        this.let,
-        this.tags,
-        this.price,
-        this.size,
-        this.slug,
-        this.path,
-        this.createdAt,
-        this.updatedAt,
-        this.catalogId,
-        this.favoritId});
+      this.images,
+      this.title,
+      this.content,
+      this.edMassa,
+      this.edMassa2,
+      this.edCount,
+      this.let,
+      this.tags,
+      this.price,
+      this.size,
+      this.slug,
+      this.path,
+      this.createdAt,
+      this.updatedAt,
+      this.catalogId,
+      this.favoritId});
 
   FavouriteItem.fromJson(Map<String, dynamic> json) {
     id = json['id'];

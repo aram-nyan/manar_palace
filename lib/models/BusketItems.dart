@@ -7,7 +7,9 @@ class BusketItems {
 
   BusketItems.fromJson(Map<String, dynamic> json) {
     success = json['success'];
-    data = json['data'] != null ? new BusketStructure.fromJson(json['data']) : null;
+    data = json['data'] != null
+        ? new BusketStructure.fromJson(json['data'])
+        : null;
     message = json['message'];
   }
 
@@ -63,16 +65,16 @@ class BusketItem {
 
   BusketItem(
       {this.id,
-        this.name,
-        this.images,
-        this.edMassa,
-        this.price,
-        this.catalogId,
-        this.content,
-        this.createdAt,
-        this.updatedAt,
-        this.amount,
-        this.basketId});
+      this.name,
+      this.images,
+      this.edMassa,
+      this.price,
+      this.catalogId,
+      this.content,
+      this.createdAt,
+      this.updatedAt,
+      this.amount,
+      this.basketId});
 
   BusketItem.fromJson(Map<String, dynamic> json) {
     id = json['id'];

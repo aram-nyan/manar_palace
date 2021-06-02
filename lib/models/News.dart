@@ -37,11 +37,11 @@ class NewsSingle {
 
   NewsSingle(
       {this.id,
-        this.name,
-        this.content,
-        this.images,
-        this.createdAt,
-        this.updatedAt});
+      this.name,
+      this.content,
+      this.images,
+      this.createdAt,
+      this.updatedAt});
 
   NewsSingle.fromJson(Map<String, dynamic> json) {
     id = json['id'];

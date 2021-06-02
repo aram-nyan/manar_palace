@@ -67,18 +67,18 @@ class FabricatCategoriesCopy {
 
   FabricatCategoriesCopy(
       {this.id,
-        this.title,
-        this.slug,
-        this.path,
-        this.content,
-        this.iLft,
-        this.iRgt,
-        this.parentId,
-        this.createdAt,
-        this.updatedAt,
-        this.sort,
-        this.visable,
-        this.products});
+      this.title,
+      this.slug,
+      this.path,
+      this.content,
+      this.iLft,
+      this.iRgt,
+      this.parentId,
+      this.createdAt,
+      this.updatedAt,
+      this.sort,
+      this.visable,
+      this.products});
 
   FabricatCategoriesCopy.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -142,21 +142,21 @@ class FabricatProductModelCopy {
 
   FabricatProductModelCopy(
       {this.id,
-        this.images,
-        this.title,
-        this.content,
-        this.edMassa,
-        this.edMassa2,
-        this.edCount,
-        this.let,
-        this.tags,
-        this.price,
-        this.size,
-        this.slug,
-        this.path,
-        this.createdAt,
-        this.updatedAt,
-        this.catalogId});
+      this.images,
+      this.title,
+      this.content,
+      this.edMassa,
+      this.edMassa2,
+      this.edCount,
+      this.let,
+      this.tags,
+      this.price,
+      this.size,
+      this.slug,
+      this.path,
+      this.createdAt,
+      this.updatedAt,
+      this.catalogId});
 
   FabricatProductModelCopy.fromJson(Map<String, dynamic> json) {
     id = json['id'];

@@ -67,18 +67,18 @@ class CategoriesFabrikat {
 
   CategoriesFabrikat(
       {this.id,
-        this.title,
-        this.slug,
-        this.path,
-        this.content,
-        this.iLft,
-        this.iRgt,
-        this.parentId,
-        this.createdAt,
-        this.updatedAt,
-        this.sort,
-        this.visable,
-        this.products});
+      this.title,
+      this.slug,
+      this.path,
+      this.content,
+      this.iLft,
+      this.iRgt,
+      this.parentId,
+      this.createdAt,
+      this.updatedAt,
+      this.sort,
+      this.visable,
+      this.products});
 
   CategoriesFabrikat.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -94,7 +94,7 @@ class CategoriesFabrikat {
     sort = json['sort'];
     visable = json['visable'];
     if (json['products'] != null) {
-      products = new List<ProductModelFabrikat>();
+      products = <ProductModelFabrikat>[];
       json['products'].forEach((v) {
         products.add(new ProductModelFabrikat.fromJson(v));
       });
@@ -142,21 +142,21 @@ class ProductModelFabrikat {
 
   ProductModelFabrikat(
       {this.id,
-        this.images,
-        this.title,
-        this.content,
-        this.edMassa,
-        this.edMassa2,
-        this.edCount,
-        this.let,
-        this.tags,
-        this.price,
-        this.size,
-        this.slug,
-        this.path,
-        this.createdAt,
-        this.updatedAt,
-        this.catalogId});
+      this.images,
+      this.title,
+      this.content,
+      this.edMassa,
+      this.edMassa2,
+      this.edCount,
+      this.let,
+      this.tags,
+      this.price,
+      this.size,
+      this.slug,
+      this.path,
+      this.createdAt,
+      this.updatedAt,
+      this.catalogId});
 
   ProductModelFabrikat.fromJson(Map<String, dynamic> json) {
     id = json['id'];

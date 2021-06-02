@@ -41,15 +41,15 @@ class FindITem {
 
   FindITem(
       {this.id,
-        this.image,
-        this.name,
-        this.path,
-        this.price,
-        this.catalogId,
-        this.edMassa,
-        this.content,
-        this.createdAt,
-        this.updatedAt});
+      this.image,
+      this.name,
+      this.path,
+      this.price,
+      this.catalogId,
+      this.edMassa,
+      this.content,
+      this.createdAt,
+      this.updatedAt});
 
   FindITem.fromJson(Map<String, dynamic> json) {
     id = json['id'];

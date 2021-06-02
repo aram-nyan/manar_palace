@@ -67,18 +67,18 @@ class CategoriesCopy {
 
   CategoriesCopy(
       {this.id,
-        this.title,
-        this.slug,
-        this.path,
-        this.content,
-        this.iLft,
-        this.iRgt,
-        this.parentId,
-        this.createdAt,
-        this.updatedAt,
-        this.sort,
-        this.visable,
-        this.products});
+      this.title,
+      this.slug,
+      this.path,
+      this.content,
+      this.iLft,
+      this.iRgt,
+      this.parentId,
+      this.createdAt,
+      this.updatedAt,
+      this.sort,
+      this.visable,
+      this.products});
 
   CategoriesCopy.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -94,7 +94,7 @@ class CategoriesCopy {
     sort = json['sort'];
     visable = json['visable'];
     if (json['products'] != null) {
-      products = new List<ProductModelCopy>();
+      products = <ProductModelCopy>[];
       json['products'].forEach((v) {
         products.add(new ProductModelCopy.fromJson(v));
       });
@@ -142,21 +142,21 @@ class ProductModelCopy {
 
   ProductModelCopy(
       {this.id,
-        this.images,
-        this.title,
-        this.content,
-        this.edMassa,
-        this.edMassa2,
-        this.edCount,
-        this.let,
-        this.tags,
-        this.price,
-        this.size,
-        this.slug,
-        this.path,
-        this.createdAt,
-        this.updatedAt,
-        this.catalogId});
+      this.images,
+      this.title,
+      this.content,
+      this.edMassa,
+      this.edMassa2,
+      this.edCount,
+      this.let,
+      this.tags,
+      this.price,
+      this.size,
+      this.slug,
+      this.path,
+      this.createdAt,
+      this.updatedAt,
+      this.catalogId});
 
   ProductModelCopy.fromJson(Map<String, dynamic> json) {
     id = json['id'];

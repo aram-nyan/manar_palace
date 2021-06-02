@@ -31,11 +31,11 @@ class Category {
 
   Category(
       {this.id,
-        this.name,
-        this.slug,
-        this.path,
-        this.createdAt,
-        this.updatedAt});
+      this.name,
+      this.slug,
+      this.path,
+      this.createdAt,
+      this.updatedAt});
 
   Category.fromJson(Map<String, dynamic> json) {
     id = json['id'];
