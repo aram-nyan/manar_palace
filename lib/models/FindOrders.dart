@@ -8,7 +8,7 @@ class FindOrders {
   FindOrders.fromJson(Map<String, dynamic> json) {
     success = json['success'];
     if (json['data'] != null) {
-      data = new List<FindITem>();
+      data = <FindITem>[];
       json['data'].forEach((v) {
         data.add(new FindITem.fromJson(v));
       });

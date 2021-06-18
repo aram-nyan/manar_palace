@@ -10,120 +10,153 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class FavoriteView extends StatefulWidget {
-
-  FavoriteView({ Key key}) : super(key: key);
+  FavoriteView({Key key}) : super(key: key);
 
   @override
   _FavoriteViewState createState() => _FavoriteViewState();
 }
 
 class _FavoriteViewState extends State<FavoriteView> {
-
   Widget build(BuildContext context) {
     var user = Provider.of<AuthProvide>(context).user;
     var snap = Provider.of<LoginProvide>(context).favouriteItem;
     return Scaffold(
-     appBar: AppBar(title: Text('Избранное',style: TextStyle(
-       color: Theme.of(context).primaryColor,
-     ),),),
-      body:
-     user== null || user.token =='' ? Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
-      child: Column(
-        mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Container(
-            padding: const EdgeInsets.all(50),
-            child: Icon(Icons.cancel, color: Theme.of(context).primaryColor, size: 250),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(10),
-            child: Text('Для доступа в раздел необходимо',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: Color.fromRGBO(0x16, 0x16, 0x16, 1.0),
-                fontWeight: FontWeight.w600,
-                fontSize: 16
-              )
-            )
-          ),
-
-          RaisedButton(
-            onPressed: () => Navigator.of(context).pushNamed(LoginPage.id),
-            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 7),
-            color: Theme.of(context).primaryColor,
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
-            child: Text('Войти',
-              style: TextStyle(
-                color: Theme.of((context)).textTheme.bodyText1.color,
-                fontWeight: FontWeight.w600,
-                fontSize: 16
-              )
+        appBar: AppBar(
+          title: Text(
+            'Избранное',
+            style: TextStyle(
+              color: Theme.of(context).primaryColor,
             ),
-          )
-        ]
-      )
-    )
-    : snap != null && snap.success ?  Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8,vertical: 16),
-            child: Container(
-              child: ListView.separated(itemBuilder:(context,i){
-                final image =CachedNetworkImage(imageUrl: snap.data[i].images,fit: BoxFit.scaleDown,
-                  placeholder:(context,url) => Image.asset( 'assets/logo.png'),
-                  errorWidget:(context,String url,s)=> Image.asset( 'assets/logo.png'),);
-                final info  = Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(snap.data[i].title,style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16
-                    ),),
-                    SizedBox(height: 4,),
-                    Text(snap.data[i].content,style: TextStyle(
-                        fontWeight: FontWeight.normal,
-                        fontSize: 12
-                    ),),
-                    SizedBox(height: 4,),
-                    Row(children: [
-                      Icon(Icons.add_box),
-                      SizedBox(width: 4,),
-                      Text(snap.data[i].price + ' ₸')
-                    ],)
-                  ],
-                );
-                var entry = snap.data[i];
-                return GestureDetector(
-                  onTap: (){
-                    showModalBottomSheet(
-                        context: context,
-                        builder: (_) => ProductDetails(
-                          entry: ProductModel(title: entry.title,content:entry.content,images: entry.images,
-                          price: entry.price,id: entry.id),
-                        ),
+          ),
+        ),
+        body: user == null || user.token == ''
+            ? Container(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.all(50),
+                        child: Icon(Icons.cancel,
+                            color: Theme.of(context).primaryColor, size: 250),
+                      ),
+                      Padding(
+                          padding: const EdgeInsets.all(10),
+                          child: Text('Для доступа в раздел необходимо',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  color: Color.fromRGBO(0x16, 0x16, 0x16, 1.0),
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 16))),
+                      RaisedButton(
+                        onPressed: () =>
+                            Navigator.of(context).pushNamed(LoginPage.id),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 12, vertical: 7),
+                        color: Theme.of(context).primaryColor,
                         shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(50),
-                                topRight: Radius.circular(50)
-                            )
-                        )
-                    );
-                  },
-                  child: Row(children: [
-                    Expanded(flex: 3,child: info,),
-                    Expanded(flex: 1,child: image,)
-                  ],),
-                );
-              },
-                padding: EdgeInsets.all(8),
-                separatorBuilder: (context,i) => Divider(),
-                itemCount: snap.data.length,),
-            ),
-          ) : snap != null && snap.success == false ? Center(child: Text(snap.message),) : LoadingCircle()
-
-
-    );
+                            borderRadius: BorderRadius.circular(6)),
+                        child: Text('Войти',
+                            style: TextStyle(
+                                color: Theme.of((context))
+                                    .textTheme
+                                    .bodyText1
+                                    .color,
+                                fontWeight: FontWeight.w600,
+                                fontSize: 16)),
+                      )
+                    ]))
+            : snap != null && snap.success
+                ? Padding(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+                    child: Container(
+                      child: ListView.separated(
+                        itemBuilder: (context, i) {
+                          final image = CachedNetworkImage(
+                            imageUrl: snap.data[i].images,
+                            fit: BoxFit.scaleDown,
+                            placeholder: (context, url) =>
+                                Image.asset('assets/logo.png'),
+                            errorWidget: (context, String url, s) =>
+                                Image.asset('assets/logo.png'),
+                          );
+                          final info = Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                snap.data[i].title,
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 16),
+                              ),
+                              SizedBox(
+                                height: 4,
+                              ),
+                              Text(
+                                snap.data[i].content,
+                                style: TextStyle(
+                                    fontWeight: FontWeight.normal,
+                                    fontSize: 12),
+                              ),
+                              SizedBox(
+                                height: 4,
+                              ),
+                              Row(
+                                children: [
+                                  Icon(Icons.add_box),
+                                  SizedBox(
+                                    width: 4,
+                                  ),
+                                  Text(snap.data[i].price + ' ₸')
+                                ],
+                              )
+                            ],
+                          );
+                          var entry = snap.data[i];
+                          return GestureDetector(
+                            onTap: () {
+                              showModalBottomSheet(
+                                  context: context,
+                                  builder: (_) => ProductDetails(
+                                        entry: ProductModel(
+                                            title: entry.title,
+                                            content: entry.content,
+                                            images: entry.images,
+                                            price: entry.price,
+                                            id: entry.id),
+                                      ),
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.only(
+                                          topLeft: Radius.circular(50),
+                                          topRight: Radius.circular(50))));
+                            },
+                            child: Row(
+                              children: [
+                                Expanded(
+                                  flex: 3,
+                                  child: info,
+                                ),
+                                Expanded(
+                                  flex: 1,
+                                  child: image,
+                                )
+                              ],
+                            ),
+                          );
+                        },
+                        padding: EdgeInsets.all(8),
+                        separatorBuilder: (context, i) => Divider(),
+                        itemCount: snap.data.length,
+                      ),
+                    ),
+                  )
+                : snap != null && snap.success == false
+                    ? Center(
+                        child: Text(snap.message),
+                      )
+                    : LoadingCircle());
   }
 }
 //GridView.builder(gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(

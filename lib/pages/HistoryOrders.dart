@@ -99,11 +99,11 @@ class _HistoryOrderState extends State<HistoryOrder> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                              snap.data[i].createdAt ?? '',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.normal,
-                                  fontSize: 12),
-                            ),
+                                snap.data[i].createdAt ?? '',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.normal,
+                                    fontSize: 12),
+                              ),
                               Text(
                                 snap.data[i].name,
                                 style: TextStyle(
@@ -129,9 +129,8 @@ class _HistoryOrderState extends State<HistoryOrder> {
                             onTap: () {
                               showModalBottomSheet(
                                   context: context,
-                                  builder: (_) => ProductHistoryDetails(
-                                        entry: entry
-                                      ),
+                                  builder: (_) =>
+                                      ProductHistoryDetails(entry: entry),
                                   shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.only(
                                           topLeft: Radius.circular(50),

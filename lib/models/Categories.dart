@@ -5,7 +5,7 @@ class Categories {
 
   Categories.fromJson(Map<String, dynamic> json) {
     if (json['data'] != null) {
-      data = new List<Category>();
+      data = <Category>[];
       json['data'].forEach((v) {
         data.add(new Category.fromJson(v));
       });

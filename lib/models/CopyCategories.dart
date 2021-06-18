@@ -8,7 +8,7 @@ class AllProductsModelCopy {
   AllProductsModelCopy.fromJson(Map<String, dynamic> json) {
     success = json['success'];
     if (json['data'] != null) {
-      data = new List<CategoriesModelCopy>();
+      data = <CategoriesModelCopy>[];
       json['data'].forEach((v) {
         data.add(new CategoriesModelCopy.fromJson(v));
       });

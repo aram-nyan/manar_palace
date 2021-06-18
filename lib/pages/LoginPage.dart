@@ -2,7 +2,7 @@ import 'package:alux/pages/ForgotPass.dart';
 import 'package:alux/services/AuthProvide.dart';
 import 'package:alux/utils/AppButton.dart';
 import 'package:alux/utils/Page.dart';
-import 'package:alux/widgets/account/CiustomTextField.dart';
+import 'package:alux/widgets/account/CustomTextField.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

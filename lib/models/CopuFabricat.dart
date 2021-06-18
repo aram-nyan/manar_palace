@@ -8,7 +8,7 @@ class FabricatProductsModelCopy {
   FabricatProductsModelCopy.fromJson(Map<String, dynamic> json) {
     success = json['success'];
     if (json['data'] != null) {
-      data = new List<FabricatCategoriesModelCopy>();
+      data = <FabricatCategoriesModelCopy>[];
       json['data'].forEach((v) {
         data.add(new FabricatCategoriesModelCopy.fromJson(v));
       });
@@ -94,7 +94,7 @@ class FabricatCategoriesCopy {
     sort = json['sort'];
     visable = json['visable'];
     if (json['products'] != null) {
-      products = new List<FabricatProductModelCopy>();
+      products = <FabricatProductModelCopy>[];
       json['products'].forEach((v) {
         products.add(new FabricatProductModelCopy.fromJson(v));
       });

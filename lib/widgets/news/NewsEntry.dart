@@ -6,64 +6,59 @@ import 'package:flutter/material.dart';
 class NewsEntry extends StatelessWidget {
   final NewsSingle entry;
 
-
-  NewsEntry({ Key key,  this.entry,  }) : super(key: key);
-
+  NewsEntry({
+    Key key,
+    this.entry,
+  }) : super(key: key);
 
   Widget build(BuildContext context) {
     final image = Container(
-      padding: const EdgeInsets.all(15),
-      child: Image.network(entry.images, fit: BoxFit.scaleDown)
-    );
-
+        padding: EdgeInsets.symmetric(horizontal: 6, vertical: 10),
+        child: Image.network(
+          entry.images,
+          fit: BoxFit.cover,
+          height: 120,
+        ));
     final info = Container(
-      padding: const EdgeInsets.all(15),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(entry.createdAt.toString(),
-            style: TextStyle(
-              color: Color.fromRGBO(0x5F, 0x5F, 0x5F, 1.0)
-            )
-          ),
-
-          Text(entry.name, style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 18
-          )),
-
-          Text(entry.content,
-            overflow: TextOverflow.clip , 
-            style: TextStyle(
-              fontWeight: FontWeight.w400,
-              fontSize: 16
-            )
-          ),
-
-        ]
-      )
-    );
+        // decoration: BoxDecoration(
+        //     borderRadius: BorderRadius.circular(20),
+        //     color: Colors.grey.withOpacity(0.4)),
+        padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+        child: Column(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                  entry.createdAt
+                      .toString()
+                      .substring(0, entry.createdAt.toString().indexOf(' ')),
+                  style:
+                      TextStyle(color: Color.fromRGBO(0x5F, 0x5F, 0x5F, 1.0))),
+              Text(entry.name,
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
+              Text(entry.content,
+                  overflow: TextOverflow.clip,
+                  style: TextStyle(fontWeight: FontWeight.w400, fontSize: 16)),
+            ]));
 
     return Container(
       child: InkWell(
-        onTap: () => showBottomSheet(
+        onTap: () => showModalBottomSheet(
           context: context,
-          builder: (_) => BottomSheet(
-            builder: (_) => NewsDetails(entry: entry),
-            
-            onClosing: () {},
-          )
-
+          builder: (_) => NewsDetails(entry: entry),
+          isScrollControlled: true,
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
-          children: [ Expanded(child: image, flex: 1), Expanded(child: info, flex: 2) ]
-        )
-      )
-    ); 
+          children: [
+            Expanded(child: image, flex: 1),
+            Expanded(child: info, flex: 2),
+          ],
+        ),
+      ),
+    );
   }
 }

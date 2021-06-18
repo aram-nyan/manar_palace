@@ -8,7 +8,7 @@ class AllProductsModel {
   AllProductsModel.fromJson(Map<String, dynamic> json) {
     success = json['success'];
     if (json['data'] != null) {
-      data = new List<CategoriesModel>();
+      data = <CategoriesModel>[];
       json['data'].forEach((v) {
         data.add(new CategoriesModel.fromJson(v));
       });
@@ -67,18 +67,18 @@ class Categories {
 
   Categories(
       {this.id,
-        this.title,
-        this.slug,
-        this.path,
-        this.content,
-        this.iLft,
-        this.iRgt,
-        this.parentId,
-        this.createdAt,
-        this.updatedAt,
-        this.sort,
-        this.visable,
-        this.products});
+      this.title,
+      this.slug,
+      this.path,
+      this.content,
+      this.iLft,
+      this.iRgt,
+      this.parentId,
+      this.createdAt,
+      this.updatedAt,
+      this.sort,
+      this.visable,
+      this.products});
 
   Categories.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -94,9 +94,9 @@ class Categories {
     sort = json['sort'];
     visable = json['visable'];
     if (json['products'] != null) {
-      products = new List<ProductModel>();
+      products = <ProductModel>[];
       json['products'].forEach((v) {
-        products.add(new ProductModel.fromJson(v));
+        products.add(ProductModel.fromJson(v));
       });
     }
   }
@@ -142,21 +142,21 @@ class ProductModel {
 
   ProductModel(
       {this.id,
-        this.images,
-        this.title,
-        this.content,
-        this.edMassa,
-        this.edMassa2,
-        this.edCount,
-        this.let,
-        this.tags,
-        this.price,
-        this.size,
-        this.slug,
-        this.path,
-        this.createdAt,
-        this.updatedAt,
-        this.catalogId});
+      this.images,
+      this.title,
+      this.content,
+      this.edMassa,
+      this.edMassa2,
+      this.edCount,
+      this.let,
+      this.tags,
+      this.price,
+      this.size,
+      this.slug,
+      this.path,
+      this.createdAt,
+      this.updatedAt,
+      this.catalogId});
 
   ProductModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -178,7 +178,7 @@ class ProductModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = Map<String, dynamic>();
     data['id'] = this.id;
     data['images'] = this.images;
     data['title'] = this.title;

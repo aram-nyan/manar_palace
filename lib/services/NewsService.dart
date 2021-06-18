@@ -11,21 +11,28 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:scroll_to_index/scroll_to_index.dart';
-class NewsViewProvider extends ChangeNotifier  {
+
+class NewsViewProvider extends ChangeNotifier {
   StreamController<int> listController = StreamController<int>();
   List<NewsSingle> newsModel = [];
 
   List<CategoriesModelCopy> _copyConst = [];
   AutoScrollController controller;
   NewsViewProvider() {
-    controller = AutoScrollController(initialScrollOffset: 0,  axis: Axis.vertical,);
+    controller = AutoScrollController(
+      initialScrollOffset: 0,
+      axis: Axis.vertical,
+    );
   }
   var isFirstAttemt = true;
   Future<List<NewsSingle>> fetchAllNews() async {
     try {
-      if(isFirstAttemt){
-        final respCategory = await http.get(
-          'https://manapolise.a-lux.dev/api/news/catalog',).catchError((e) => print(e));
+      if (isFirstAttemt) {
+        final respCategory = await http
+            .get(
+              'https://manapolise.a-lux.dev/api/news/catalog',
+            )
+            .catchError((e) => print(e));
         News allNees;
         if (respCategory.statusCode == 200) {
           var jsonResp = json.decode(respCategory.body);
@@ -46,8 +53,4 @@ class NewsViewProvider extends ChangeNotifier  {
     print(_copyConst.length.toString() + ' copu const');
     return newsModel;
   }
-
-
 }
-
-

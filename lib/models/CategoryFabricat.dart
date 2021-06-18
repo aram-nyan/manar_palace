@@ -8,7 +8,7 @@ class FabricatAll {
   FabricatAll.fromJson(Map<String, dynamic> json) {
     success = json['success'];
     if (json['data'] != null) {
-      data = new List<CategoriesModelFabricat>();
+      data = <CategoriesModelFabricat>[];
       json['data'].forEach((v) {
         data.add(new CategoriesModelFabricat.fromJson(v));
       });
@@ -51,18 +51,18 @@ class CategoriesModelFabricat {
 }
 
 class CategoriesFabrikat {
-  int id;
-  String title;
-  String slug;
-  String path;
-  Null content;
-  int iLft;
-  int iRgt;
-  Null parentId;
-  String createdAt;
-  String updatedAt;
-  int sort;
-  int visable;
+  dynamic id;
+  dynamic title;
+  dynamic slug;
+  dynamic path;
+  dynamic content;
+  dynamic iLft;
+  dynamic iRgt;
+  dynamic parentId;
+  dynamic createdAt;
+  dynamic updatedAt;
+  dynamic sort;
+  dynamic visable;
   List<ProductModelFabrikat> products;
 
   CategoriesFabrikat(

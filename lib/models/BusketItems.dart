@@ -32,7 +32,7 @@ class BusketStructure {
 
   BusketStructure.fromJson(Map<String, dynamic> json) {
     if (json['basket'] != null) {
-      basket = new List<BusketItem>();
+      basket = <BusketItem>[];
       json['basket'].forEach((v) {
         basket.add(new BusketItem.fromJson(v));
       });
@@ -51,19 +51,19 @@ class BusketStructure {
 }
 
 class BusketItem {
-  int id;
-  String name;
-  String images;
-  String edMassa;
-  String price;
-  int catalogId;
-  String content;
-  String createdAt;
-  String updatedAt;
-  int amount;
-  int basketId;
+  dynamic id;
+  dynamic name;
+  dynamic images;
+  dynamic edMassa;
+  dynamic price;
+  dynamic catalogId;
+  dynamic content;
+  dynamic createdAt;
+  dynamic updatedAt;
+  dynamic amount;
+  dynamic basketId;
 
-  BusketItem(
+  BusketItem.BasketItem(
       {this.id,
       this.name,
       this.images,
@@ -73,7 +73,7 @@ class BusketItem {
       this.content,
       this.createdAt,
       this.updatedAt,
-      this.amount,
+      this.amount = 0,
       this.basketId});
 
   BusketItem.fromJson(Map<String, dynamic> json) {

@@ -1,10 +1,10 @@
-
 import 'package:alux/services/AuthProvide.dart';
 import 'package:alux/services/LoginProvide.dart';
 import 'package:alux/utils/AppButton.dart';
-import 'package:alux/widgets/account/CiustomTextField.dart';
+import 'package:alux/widgets/account/CustomTextField.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
 class ProfileDataScreen extends StatelessWidget {
   static var id = 'profileDatascreen';
   @override
@@ -15,21 +15,30 @@ class ProfileDataScreen extends StatelessWidget {
     var w = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
-        leading: GestureDetector(child: Icon(Icons.arrow_back,color: Theme.of(context).primaryColor,),onTap: (){
-          Navigator.pop(context);
-        },),
+        leading: GestureDetector(
+          child: Icon(
+            Icons.arrow_back,
+            color: Theme.of(context).primaryColor,
+          ),
+          onTap: () {
+            Navigator.pop(context);
+          },
+        ),
         backgroundColor: Colors.white,
-        title: Text('Профиль',style: TextStyle(
-          color: Theme.of(context).primaryColor,
-          fontSize: 18,
-          fontWeight: FontWeight.w700,
-        ),),
+        title: Text(
+          'Профиль',
+          style: TextStyle(
+            color: Theme.of(context).primaryColor,
+            fontSize: 18,
+            fontWeight: FontWeight.w700,
+          ),
+        ),
       ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.only(top: 24),
           child: Container(
-            height: h-42,
+            height: h - 42,
             width: w,
             child: SingleChildScrollView(
               scrollDirection: Axis.vertical,
@@ -37,26 +46,53 @@ class ProfileDataScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  CustomTextField(hintText: 'Ваше имя',onChanged: (val){
-                    newData['name'] = val;
-                  },),
-                  SizedBox(height: 28,),
-                  CustomTextField(hintText: 'Телефон',onChanged: (val){
-                    newData['tel'] = val;
-                  },),
-                  SizedBox(height: 28,),
-                  CustomTextField(hintText: 'E-mail',onChanged: (val){
-                    newData['email'] = val;
-                  },),
-                  SizedBox(height: 28,),
-                  CustomTextField(hintText: 'Пароль',obscure: true,onChanged: (val){
-                    newData['password'] = val.toString();
-                  },),
-                  SizedBox(height: 28,),
-                  CustomTextField(hintText: 'Введите пароль повторно',obscure: true,onChanged: (val){
-                    newData['password_confirmation'] = val.toString();
-                  },),
-                  SizedBox(height: 28,),
+                  CustomTextField(
+                    hintText: 'Ваше имя',
+                    onChanged: (val) {
+                      newData['name'] = val;
+                    },
+                  ),
+                  SizedBox(
+                    height: 28,
+                  ),
+                  CustomTextField(
+                    hintText: 'Телефон',
+                    onChanged: (val) {
+                      newData['tel'] = val;
+                    },
+                  ),
+                  SizedBox(
+                    height: 28,
+                  ),
+                  CustomTextField(
+                    hintText: 'E-mail',
+                    onChanged: (val) {
+                      newData['email'] = val;
+                    },
+                  ),
+                  SizedBox(
+                    height: 28,
+                  ),
+                  CustomTextField(
+                    hintText: 'Пароль',
+                    obscure: true,
+                    onChanged: (val) {
+                      newData['password'] = val.toString();
+                    },
+                  ),
+                  SizedBox(
+                    height: 28,
+                  ),
+                  CustomTextField(
+                    hintText: 'Введите пароль повторно',
+                    obscure: true,
+                    onChanged: (val) {
+                      newData['password_confirmation'] = val.toString();
+                    },
+                  ),
+                  SizedBox(
+                    height: 28,
+                  ),
 //                  Padding(
 //                    padding: const EdgeInsets.symmetric(horizontal: 32),
 //                    child: Column(
@@ -94,10 +130,15 @@ class ProfileDataScreen extends StatelessWidget {
 //                      ],
 //                    ),
 //                  ),
-                  CustomTextField(hintText: 'Адресс доставки',onChanged: (val){
-                    newData['adress'] = val;
-                  },),
-                  SizedBox(height: 28,),
+                  CustomTextField(
+                    hintText: 'Адресс доставки',
+                    onChanged: (val) {
+                      newData['adress'] = val;
+                    },
+                  ),
+                  SizedBox(
+                    height: 28,
+                  ),
 //                  Padding(
 //                    padding: const EdgeInsets.symmetric(horizontal: 32),
 //                    child: Row(children: [
@@ -185,16 +226,28 @@ class ProfileDataScreen extends StatelessWidget {
 //                    ],),
 //                  ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 16,right:16,top: 32,bottom: 64),
+                    padding: const EdgeInsets.only(
+                        left: 16, right: 16, top: 32, bottom: 64),
                     child: Container(
                       width: w,
-                      child: AppButton(trigger:loginProvide.isLoading, label: 'Сохранить',white:true,enable:true,onPressed: (){
-                        var token = Provider.of<LoginProvide>(context,listen: false).user.token;
-                        loginProvide.updateUser(context,token);
-                      },),
+                      child: AppButton(
+                        trigger: loginProvide.isLoading,
+                        label: 'Сохранить',
+                        white: true,
+                        enable: true,
+                        onPressed: () {
+                          var token =
+                              Provider.of<LoginProvide>(context, listen: false)
+                                  .user
+                                  .token;
+                          loginProvide.updateUser(context, token);
+                        },
+                      ),
                     ),
                   ),
-                  SizedBox(height: 120,),
+                  SizedBox(
+                    height: 120,
+                  ),
                 ],
               ),
             ),
@@ -204,6 +257,3 @@ class ProfileDataScreen extends StatelessWidget {
     );
   }
 }
-
-
-

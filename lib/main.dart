@@ -22,6 +22,10 @@ import 'package:provider/provider.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+    statusBarColor: Colors.black54,
+    statusBarBrightness: Brightness.dark,
+  ));
 //  OneSignal.shared.init(
 //      "767f73d7-b084-4e50-91ca-032227b6ba45",
 //      iOSSettings: {

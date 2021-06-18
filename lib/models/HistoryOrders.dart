@@ -8,7 +8,7 @@ class HistoryOrders {
   HistoryOrders.fromJson(Map<String, dynamic> json) {
     success = json['success'];
     if (json['data'] != null) {
-      data = new List<Data>();
+      data = <Data>[];
       json['data'].forEach((v) {
         data.add(new Data.fromJson(v));
       });

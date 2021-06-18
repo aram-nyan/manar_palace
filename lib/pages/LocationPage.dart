@@ -13,7 +13,8 @@ class LocationPage extends StatelessWidget {
     return AppPage(
       single: true,
       title: 'Наши заведения по Казахстану',
-      // content:
+      // content: WebView(
+      //     initialUrl: 'https://manapolise.a-lux.dev/api/page/oferta/aboutus'),
     );
   }
 }
