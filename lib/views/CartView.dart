@@ -215,7 +215,7 @@ class _CartViewState extends State<CartView> {
                                       title: Text(
                                         provide.isOrdering
                                             ? 'Подождите'
-                                            : "Вы уверены, что хотите cовершить покупку?",
+                                            : "Мы свяжемся с вами после подверждения заказа ",
                                       ),
                                       actions: <Widget>[
                                         BasicDialogAction(
@@ -231,7 +231,7 @@ class _CartViewState extends State<CartView> {
                                         ),
                                         BasicDialogAction(
                                           title: Text(
-                                            "Да",
+                                            "Подтвердить заказ",
                                             style: TextStyle(
                                                 color: Theme.of(context)
                                                     .primaryColor),
@@ -239,6 +239,23 @@ class _CartViewState extends State<CartView> {
                                           onPressed: () {
                                             provide.order(user.token, context,
                                                 samvyvoz, personsCount);
+                                            // showDialog(
+                                            //     context: context,
+                                            //     builder:
+                                            //         (BuildContext context) =>
+                                            //             AlertDialog(
+                                            //               title: Text(
+                                            //                   'Ваш заказ принят'),
+                                            //               content: Text(
+                                            //                   'Мы свяжемся с вами '),
+                                            //               actions: [
+                                            //                 IconButton(
+                                            //                     onPressed:
+                                            //                         () {},
+                                            //                     icon: Icon(Icons
+                                            //                         .close_sharp))
+                                            //               ],
+                                            //             ));
                                           },
                                         ),
                                       ],
